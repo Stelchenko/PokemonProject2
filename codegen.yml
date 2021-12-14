@@ -1,0 +1,16 @@
+overwrite: true
+schema: "https://beta.pokeapi.co/graphql/v1beta"
+documents: "src/**/*.gql"
+generates:
+  src/__generated__/types.ts:
+    - typescript
+  src/:
+    preset: near-operation-file
+    presetConfig:
+      folder: __generated__
+      extension: .tsx
+      baseTypesPath: __generated__/types.ts
+    plugins:
+      - "typescript-operations"
+      - "typescript-react-apollo"
+      - "typescript"

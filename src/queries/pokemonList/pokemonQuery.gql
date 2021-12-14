@@ -1,0 +1,6 @@
+query GetPokemons($offset: Int = 0) {
+  pokemon_v2_pokemon(limit: 20, offset: $offset) {
+    name
+    id
+  }
+}

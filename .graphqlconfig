@@ -1,0 +1,11 @@
+{
+  "name": "Untitled GraphQL Schema",
+  "schemaPath": "schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "Default GraphQL Endpoint": {
+        "url": "https://beta.pokeapi.co/graphql/v1beta"
+      }
+    }
+  }
+}

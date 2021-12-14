@@ -1,12 +1,12 @@
 import React from "react";
-import {Text, View} from "react-native";
+import {View} from "react-native";
+import {styles} from "./style";
+import PokemonList from "./components/pokemonList";
 
 const HomeScreen = () => {
   return (
-    <View>
-      <Text>TEXTASDASDASDASD
-      ASDASDASDASd
-      </Text>
+    <View style={styles.screen}>
+      <PokemonList/>
     </View>
   )
 }
