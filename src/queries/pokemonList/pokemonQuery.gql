@@ -1,6 +1,17 @@
 query GetPokemons($offset: Int = 0) {
-  pokemon_v2_pokemon(limit: 20, offset: $offset) {
-    name
-    id
-  }
+    pokemon_v2_pokemon(limit: 20, offset: $offset) {
+        name
+        id
+        pokemon_v2_pokemonabilities {
+            pokemon_v2_ability {
+                name
+                pokemon_v2_abilityeffecttexts(where: {pokemon_v2_language: {id: {_eq: 9}}}) {
+                    effect
+                }
+            }
+        }
+        height
+        weight
+    }
 }
+

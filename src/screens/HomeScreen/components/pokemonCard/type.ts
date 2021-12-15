@@ -1,5 +1,6 @@
-import {Pokemon_V2_Pokemon} from "../../../../__generated__/types";
+import {PokemonListItem} from "../../../../types/pokemon";
 
 export type PokemonCardProps = {
-  pokemon: Pick<Pokemon_V2_Pokemon, 'id' | 'name' >
+  pokemon: PokemonListItem,
+  navigationHandler: (path: string, props: {}) => void,
 }

@@ -1,12 +1,12 @@
 import React, {FC} from "react";
-import {View} from "react-native";
+import {TouchableOpacity} from "react-native";
 import {styles} from "./style";
 import {CardProps} from "./types";
 
 const Card: FC<CardProps> = props => {
-  const {style} = props
+  const {style, navigationHandler, pokemon} = props
   return (
-    <View style={[styles.card, style]}>{props.children}</View>
+    <TouchableOpacity onPress={() => navigationHandler('Details', {pokemon: pokemon})} style={[styles.card, style]}>{props.children}</TouchableOpacity>
   );
 }
 

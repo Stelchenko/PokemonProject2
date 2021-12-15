@@ -1,11 +1,14 @@
 import {useGetPokemonsQuery} from "../../../../queries/pokemonList/__generated__/pokemonQuery";
 import DefaultActivityIndicator from "../../../../components/activityIndicator";
 import {Text, View} from "react-native";
-import React from "react";
+import React, {FC} from "react";
 import PokemonListView from "./pokemonListView";
 import {QueryResult} from "@apollo/client";
+import {mapPokemonList} from "../../../../utils/mapPokemonUtils";
+import {PokemonListProps} from "./type";
 
-const PokemonList = () => {
+const PokemonList: FC<PokemonListProps> = props => {
+  const {navigationHandler} = props
   const pokemonsData = useGetPokemonsQuery({variables: {offset: 0}})
   if (pokemonsData.loading) return <DefaultActivityIndicator/>
   if (pokemonsData.error) return <Text>ERROR!</Text>
@@ -16,7 +19,7 @@ const PokemonList = () => {
 
   return (
     <View>
-      <PokemonListView pokemonsData={pokemonsData} loadMore={loadMore}/>
+      <PokemonListView navigationHandler={navigationHandler} pokemonsData={pokemonsData} pokemons={mapPokemonList(pokemonsData.data?.pokemon_v2_pokemon)} loadMore={loadMore}/>
     </View>
 
   )
