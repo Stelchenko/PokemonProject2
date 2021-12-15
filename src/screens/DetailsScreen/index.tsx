@@ -14,8 +14,8 @@ const DetailsScreen: FC<DetailsScreenProps> = ({route, navigation}) => {
                source={{uri: pokemon.image}}/>
       </View>
 
-      <Text style={styles.sizeText}>Рост:{pokemon.height * 10} см</Text>
-      <Text style={styles.sizeText}>Вес: {pokemon.weight / 10} кг</Text>
+      <Text style={styles.sizeText}>Рост:{pokemon.height ? pokemon.height * 10 : ''} см</Text>
+      <Text style={styles.sizeText}>Вес: {pokemon.weight ? pokemon.weight / 10 : ''} кг</Text>
       <Text style={styles.abilityText}>Способности:</Text>
       {/*<AbilityCard ability={pokemon.abilities[0].pokemon_v2_ability}></AbilityCard>*/}
       <FlatList

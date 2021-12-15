@@ -7,6 +7,7 @@ export const styles = StyleSheet.create({
     width: '45%',
     aspectRatio: 150/132,
     flexDirection: 'column',
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    borderRadius: 300
   }
 })

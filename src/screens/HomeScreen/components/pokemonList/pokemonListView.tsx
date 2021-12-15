@@ -19,7 +19,7 @@ const PokemonListView: FC<PokemonListViewProps> = props => {
         <PokemonCard pokemon={itemData.item} navigationHandler={navigationHandler}/>
       )}
       numColumns={2}
-      onEndReachedThreshold={0.1}
+      onEndReachedThreshold={0.8}
       onEndReached={() => loadMore(pokemonsData)}
     />
   )
