@@ -3,8 +3,11 @@ import {StyleSheet} from "react-native";
 export const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    alignItems: "center",
     paddingHorizontal: 20
+  },
+  scrollScreen: {
+    alignItems: "center",
+    justifyContent: "flex-start",
   },
   img: {
     height: '100%',
@@ -22,5 +25,16 @@ export const styles = StyleSheet.create({
   sizeText: {
     fontSize: 19,
     fontWeight: '500'
+  },
+  typeList: {
+    width: '100%',
+    paddingBottom: 15,
+  },
+  typeName: {
+    fontSize: 20,
+    paddingHorizontal: 20,
+  },
+  abilityList: {
+    height: '60%'
   }
 })

@@ -10,7 +10,8 @@ export function mapPokemonList(draftPokemonList: PokemonQueryItem[] | undefined)
       height: item.height,
       weight: item.weight,
       image: convertIdToSrc(item.id),
-      abilities: item.pokemon_v2_pokemonabilities
+      abilities: item.pokemon_v2_pokemonabilities,
+      types: item.pokemon_v2_pokemontypes
     }))
   }
   else return []

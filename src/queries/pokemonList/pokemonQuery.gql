@@ -12,6 +12,11 @@ query GetPokemons($offset: Int = 0) {
         }
         height
         weight
+        pokemon_v2_pokemontypes {
+            pokemon_v2_type {
+                name
+            }
+        }
     }
 }
 
