@@ -1,15 +1,20 @@
 import React, {FC} from "react";
-import {Image, Text} from "react-native";
+import {Text} from "react-native";
+import {Image} from 'react-native-elements'
 import Card from "../../../../components/Card";
 import {styles} from "./style";
 import {PokemonCardProps} from "./type";
+import DefaultActivityIndicator from "../../../../components/activityIndicator";
 
 const PokemonCard: FC<PokemonCardProps> = props => {
   const {pokemon, navigationHandler} = props
   return (
     <Card pokemon={pokemon} navigationHandler={navigationHandler} style={styles.container}>
-      <Image style={{width: '90%', height: '90%',}} source={{uri: pokemon.image}}/>
-      <Text>{pokemon.name}</Text>
+      <Text>{pokemon.name.toUpperCase()}</Text>
+      <Image style={{width: 140, height: 140,}} source={{uri: pokemon.image}} placeholderStyle={styles.placeholder}
+             PlaceholderContent={<DefaultActivityIndicator/>}/>
+
+
     </Card>
 
 

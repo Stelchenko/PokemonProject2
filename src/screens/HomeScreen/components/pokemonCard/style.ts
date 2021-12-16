@@ -9,5 +9,15 @@ export const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: "space-between",
     borderRadius: 300
+  },
+  name: {
+    fontWeight: "700"
+  },
+  placeholder: {
+    backgroundColor: 'white',
+    width: 50,
+    height: 50,
+    position: "absolute",
+    left: '30%'
   }
 })

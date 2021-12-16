@@ -3,7 +3,6 @@ import {FlatList, LayoutAnimation} from "react-native";
 import {styles} from "./style";
 import PokemonCard from "../pokemonCard";
 import {PokemonListViewProps} from "./type";
-import {QueryResult} from "@apollo/client";
 
 const PokemonListView: FC<PokemonListViewProps> = props => {
   const {pokemonsData, loadMore, pokemons, navigationHandler} = props
@@ -29,7 +28,7 @@ const PokemonListView: FC<PokemonListViewProps> = props => {
       )}
       numColumns={2}
       onEndReachedThreshold={0.8}
-      onEndReached={() => load(pokemonsData)}
+      onEndReached={() => load()}
     />
   )
 }
