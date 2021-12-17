@@ -41,5 +41,6 @@ export enum TypeBorderColors {
 }
 
 export type TypeCardProps = {
-  typeName: string | undefined
+  typeName: string | undefined,
+  navigationHandler: (path: string, props: {}) => void,
 }

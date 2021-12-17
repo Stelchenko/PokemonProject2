@@ -1,3 +1,4 @@
 export type HomeScreenProps = {
-  navigation: { navigate: (path: string, props: {}) => void }
+  navigation: { navigate: (path: string, props: {}) => void },
+  typeName: string
 }

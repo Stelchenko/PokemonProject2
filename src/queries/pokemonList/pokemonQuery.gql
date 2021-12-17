@@ -20,3 +20,33 @@ query GetPokemons($offset: Int = 0) {
     }
 }
 
+query GetPokemonsByType($typeName: String = "bug"){
+    pokemon_v2_pokemon(limit: 20, where: {pokemon_v2_pokemontypes: {pokemon_v2_type: {name: {_eq: $typeName}}}}, order_by: {id: asc}) {
+        name
+        id
+        pokemon_v2_pokemonabilities {
+            pokemon_v2_ability {
+                name
+                pokemon_v2_abilityeffecttexts(where: {pokemon_v2_language: {id: {_eq: 9}}}) {
+                    effect
+                }
+            }
+        }
+        height
+        weight
+        pokemon_v2_pokemontypes {
+            pokemon_v2_type {
+                name
+            }
+        }
+        pokemon_v2_pokemonspecy {
+            pokemon_v2_evolutionchain {
+                pokemon_v2_pokemonspecies {
+                    name
+                    id
+                }
+            }
+        }
+    }
+}
+

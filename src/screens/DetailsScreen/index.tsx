@@ -8,7 +8,10 @@ import Svg from "react-native-svg";
 
 const DetailsScreen: FC<DetailsScreenProps> = ({route, navigation}) => {
   const {pokemon} = route.params
-  useEffect(() => navigation.setOptions({title: pokemon.name}), [])
+  const navigationHandler = (path: string, props: {}) => {
+    navigation.push(path, props)
+  }
+  useEffect(() => navigation.setOptions({title: pokemon.name}), [pokemon.name])
   return (
     <ScrollView contentContainerStyle={styles.scrollScreen} style={styles.screen}>
       <View style={styles.imgContainer}>
@@ -19,7 +22,7 @@ const DetailsScreen: FC<DetailsScreenProps> = ({route, navigation}) => {
         style={styles.typeList}
         data={pokemon.types}
         renderItem={itemData => (
-          <TypeCard typeName={itemData.item.pokemon_v2_type?.name}/>
+          <TypeCard navigationHandler={navigationHandler} typeName={itemData.item.pokemon_v2_type?.name}/>
         )}
         horizontal={true}
       />

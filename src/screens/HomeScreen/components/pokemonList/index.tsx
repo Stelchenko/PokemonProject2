@@ -1,4 +1,7 @@
-import {useGetPokemonsQuery} from "../../../../queries/pokemonList/__generated__/pokemonQuery";
+import {
+  useGetPokemonsByTypeQuery,
+  useGetPokemonsQuery
+} from "../../../../queries/pokemonList/__generated__/pokemonQuery";
 import DefaultActivityIndicator from "../../../../components/activityIndicator";
 import {Text, View} from "react-native";
 import React, {FC} from "react";
@@ -8,8 +11,9 @@ import {mapPokemonList} from "../../../../utils/mapPokemonUtils";
 import {PokemonListProps} from "./type";
 
 const PokemonList: FC<PokemonListProps> = props => {
-  const {navigationHandler} = props
-  const pokemonsData = useGetPokemonsQuery({variables: {offset: 0}})
+  const {navigationHandler, typeName} = props
+  console.log(typeName)
+  const pokemonsData = typeName ? useGetPokemonsByTypeQuery({variables: {typeName: typeName}}) : useGetPokemonsQuery({variables: {offset: 0}, fetchPolicy: "network-only"})
   if (pokemonsData.loading) return <DefaultActivityIndicator/>
   if (pokemonsData.error) return <Text>ERROR!</Text>
 
