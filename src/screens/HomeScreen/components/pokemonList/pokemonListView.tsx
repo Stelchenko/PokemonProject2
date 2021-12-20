@@ -7,11 +7,11 @@ import {PokemonListViewProps} from "./type";
 const PokemonListView: FC<PokemonListViewProps> = props => {
   const {pokemonsData, loadMore, pokemons, navigationHandler} = props
   const load = () => {
-    LayoutAnimation.configureNext(LayoutAnimation.Presets.linear);
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     loadMore(pokemonsData)
   }
   const refetch = () => {
-    LayoutAnimation.configureNext(LayoutAnimation.Presets.linear);
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     pokemonsData.refetch()
   }
 

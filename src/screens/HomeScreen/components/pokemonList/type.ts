@@ -10,5 +10,5 @@ export type PokemonListViewProps = {
 
 export type PokemonListProps = {
   navigationHandler: (path: string, props: {}) => void,
-  typeName?: string
+  typeName?: string | null
 }

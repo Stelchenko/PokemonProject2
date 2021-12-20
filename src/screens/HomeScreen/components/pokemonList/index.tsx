@@ -16,7 +16,7 @@ const PokemonList: FC<PokemonListProps> = props => {
   const pokemonsData = typeName ? useGetPokemonsByTypeQuery({
     variables: {typeName: typeName, offset: 0},
     fetchPolicy: "network-only"
-  }) : useGetPokemonsQuery({variables: {offset: 0}})
+  }) : useGetPokemonsQuery({variables: {offset: 0}, })
   if (pokemonsData.loading) return <DefaultActivityIndicator/>
   if (pokemonsData.error) return <Text>ERROR!</Text>
 

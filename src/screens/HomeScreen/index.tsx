@@ -12,7 +12,7 @@ const HomeScreen: FC<HomeScreenProps> = props => {
 
   return (
     <View style={styles.screen}>
-      <PokemonList  navigationHandler={navigationHandler}/>
+      <PokemonList typeName={null}  navigationHandler={navigationHandler}/>
     </View>
   )
 }
