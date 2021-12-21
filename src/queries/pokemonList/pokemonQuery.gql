@@ -1,24 +1,35 @@
 query GetPokemons($offset: Int = 0) {
-    pokemon_v2_pokemon(limit: 20, offset: $offset) {
+    pokemon_v2_pokemon(limit: 20, offset: $offset, order_by: {id: asc}) {
         name
         id
-        pokemon_v2_pokemonabilities {
-            pokemon_v2_ability {
-                name
-                pokemon_v2_abilityeffecttexts(where: {pokemon_v2_language: {id: {_eq: 9}}}) {
-                    effect
-                }
-            }
-        }
         height
         weight
-        pokemon_v2_pokemontypes {
-            pokemon_v2_type {
-                name
+    }
+}
+
+query GetPokemonById($id: Int) {
+    pokemon_v2_pokemon(where: {id: {_eq: $id}}) {
+        name
+        id
+        height
+        weight
+    }
+}
+
+query GetPokemonEvolutionChain($id: Int) {
+    pokemon_v2_pokemon(where: {id: {_eq: $id}}) {
+        pokemon_v2_pokemonspecy {
+            pokemon_v2_evolutionchain {
+                pokemon_v2_pokemonspecies(order_by: {id: asc}) {
+                    name
+                    id
+                }
             }
         }
     }
 }
+
+
 
 query GetPokemonsByType($typeName: String = "bug", $offset: Int = 0){
     pokemon_v2_pokemon(limit: 20, offset: $offset, where: {pokemon_v2_pokemontypes: {pokemon_v2_type: {name: {_eq: $typeName}}}}, order_by: {id: asc}) {
@@ -49,4 +60,29 @@ query GetPokemonsByType($typeName: String = "bug", $offset: Int = 0){
         }
     }
 }
+
+query GetTypes($id: Int) {
+    pokemon_v2_pokemon(where: {id: {_eq: $id}}) {
+        pokemon_v2_pokemontypes {
+            pokemon_v2_type {
+                name
+            }
+        }
+    }
+}
+
+query GetAbilities($id: Int) {
+    pokemon_v2_pokemon(where: {id: {_eq: $id}}) {
+        pokemon_v2_pokemonabilities {
+            pokemon_v2_ability {
+                name
+                pokemon_v2_abilityeffecttexts(where: {pokemon_v2_language: {id: {_eq: 9}}}) {
+                    effect
+                }
+            }
+        }
+    }
+}
+
+
 

@@ -1,5 +1,5 @@
 
-import {Pokemon_V2_Ability} from "../../../../__generated__/types";
+import {Pokemon_V2_Ability} from "../../../../../__generated__/types";
 import {Maybe} from "graphql/jsutils/Maybe";
 
 export type AbilityCardProps = {
